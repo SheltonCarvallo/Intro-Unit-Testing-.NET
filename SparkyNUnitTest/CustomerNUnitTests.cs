@@ -20,12 +20,12 @@ namespace Sparky
             customer.GreetAndCombineNames("Ben", "Spark");
 
             //Assert
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Is.EqualTo("Hello, Ben Spark"));
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Does.Contain(","));
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Does.Contain("spark").IgnoreCase); // It's not case sensitive
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Does.StartWith("He"));
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Does.EndWith("k"));
-            Assert.That(customer.GreetAndCombineNames("Ben", "Spark"), Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
+            Assert.That(customer.GreetMessage, Is.EqualTo("Hello, Ben Spark"));
+            Assert.That(customer.GreetMessage, Does.Contain(","));
+            Assert.That(customer.GreetMessage, Does.Contain("spark").IgnoreCase); // It's not case sensitive
+            Assert.That(customer.GreetMessage, Does.StartWith("He"));
+            Assert.That(customer.GreetMessage, Does.EndWith("k"));
+            Assert.That(customer.GreetMessage, Does.Match("Hello, [A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
         }
 
         [Test]
