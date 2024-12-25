@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,6 +70,31 @@ namespace Sparky
             // Assert
            ClassicAssert.AreEqual(15.9, result, 0.5); // The las argument is the delta value which acts like a buffer of the adding operation in this case
 
+
+        }
+
+        [Test]
+        public void OddRanger_InputMinAndMaxRange_ReturnValidOddNumberRange()
+        {
+            // Arrange
+            Calculator calculator = new Calculator();
+            IEnumerable<int> expectedOddRange = new List<int>() { 5, 7, 9}; //5 - 10
+
+            // Act
+            IEnumerable<int> result = calculator.GetOddRange(5, 10);
+            
+            // Assert
+            Assert.That(result, Is.EquivalentTo(expectedOddRange));
+            //ClassicAssert.AreEqual(expectedOddRange, result);
+            //ClassicAssert.Contains(7, result);
+            Assert.That(result, Has.Member(7));
+            Assert.That(result, Does.Contain(7));
+            Assert.That(result, Is.Not.Empty);
+            Assert.That(result.Count, Is.EqualTo(3));
+            Assert.That(result, Has.No.Member(77));
+            //Assert.That(result, Is.Ordered.Descending);
+            Assert.That(result, Is.Ordered);
+            Assert.That(result, Is.Unique); // Check if each element of the collection is unique
 
         }
 
